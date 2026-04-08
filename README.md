@@ -17,12 +17,3 @@ Looking for roles at the intersection of enterprise and AI: product management, 
 
 - [LinkedIn](https://www.linkedin.com/in/tanishkthorat)
 - Portfolio: [tanishk-portfolio-opal.vercel.app](https://tanishk-portfolio-opal.vercel.app/)
-
-## Local development
-
-```bash
-npm install
-npm run dev
-```
-
-Opens at [http://localhost:3000](http://localhost:3000).
