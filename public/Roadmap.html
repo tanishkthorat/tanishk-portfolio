@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Synthesis Engine - Prioritized Roadmap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FAFAFA; padding: 32px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 20px; font-weight: 600; color: #1B3A5C; }
+  .subtitle { font-size: 12px; color: #888; margin: 2px 0 20px; }
+
+  .roadmap { position: relative; overflow-x: auto; }
+  .grid { display: grid; grid-template-columns: 160px repeat(12, 1fr); gap: 0; min-width: 900px; }
+
+  /* Header row */
+  .header-blank { background: #FFF; border-bottom: 2px solid #1B3A5C; padding: 8px; }
+  .header-week {
+    background: #FFF; border-bottom: 2px solid #1B3A5C;
+    font-size: 10px; font-weight: 500; color: #888;
+    text-align: center; padding: 4px 2px;
+  }
+  .header-month {
+    text-align: center; font-size: 12px; font-weight: 600; color: #1B3A5C;
+    padding: 6px 0 2px; border-bottom: 1px solid #E0E0E0;
+  }
+  .month-span-4 { grid-column: span 4; }
+
+  /* Track labels */
+  .track-label {
+    display: flex; align-items: center;
+    padding: 0 12px; font-size: 12px; font-weight: 600;
+    border-right: 1px solid #E0E0E0;
+    min-height: 52px;
+  }
+  .track-label span { line-height: 1.3; }
+
+  /* Track cells */
+  .track-row {
+    display: contents;
+  }
+  .cell {
+    border-bottom: 1px solid #F0F0F0;
+    border-right: 1px solid #F5F5F5;
+    min-height: 52px;
+    padding: 4px 2px;
+    position: relative;
+  }
+
+  /* Task bars */
+  .bar {
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .bar-sm { font-size: 9px; padding: 3px 4px; }
+
+  /* Colors */
+  .bar-blue { background: #D6E4F0; color: #0C447C; border: 1px solid #85B7EB; }
+  .bar-teal { background: #E1F5EE; color: #085041; border: 1px solid #5DCAA5; }
+  .bar-purple { background: #EEEDFE; color: #3C3489; border: 1px solid #AFA9EC; }
+  .bar-gray { background: #F1EFE8; color: #444441; border: 1px solid #B4B2A9; }
+  .bar-amber { background: #FFF3E0; color: #633806; border: 1px solid #EF9F27; }
+  .bar-coral { background: #FAECE7; color: #712B13; border: 1px solid #F0997B; }
+  .bar-green { background: #EAF3DE; color: #27500A; border: 1px solid #97C459; }
+
+  .track-label.tl-blue { color: #0C447C; border-left: 3px solid #378ADD; }
+  .track-label.tl-purple { color: #3C3489; border-left: 3px solid #7F77DD; }
+  .track-label.tl-teal { color: #085041; border-left: 3px solid #1D9E75; }
+  .track-label.tl-gray { color: #444441; border-left: 3px solid #888780; }
+  .track-label.tl-amber { color: #633806; border-left: 3px solid #EF9F27; }
+  .track-label.tl-coral { color: #712B13; border-left: 3px solid #D85A30; }
+
+  /* Milestone markers */
+  .milestone {
+    position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+    width: 12px; height: 12px; background: #1B3A5C; border-radius: 50%;
+    border: 2px solid #FFF; z-index: 2;
+  }
+
+  /* Span helpers */
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
+  .span-5 { grid-column: span 5; }
+  .span-6 { grid-column: span 6; }
+  .span-8 { grid-column: span 8; }
+  .span-10 { grid-column: span 10; }
+  .span-12 { grid-column: span 12; }
+
+  /* Phase backgrounds */
+  .phase-bg-1 { background: rgba(27,58,92,0.03); }
+  .phase-bg-2 { background: rgba(8,80,65,0.03); }
+  .phase-bg-3 { background: rgba(60,52,137,0.03); }
+
+  /* Story points badge */
+  .sp {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 600;
+    background: rgba(0,0,0,0.08);
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* Legend and cuts */
+  .legend {
+    display: flex; gap: 16px; margin: 20px 0 0;
+    flex-wrap: wrap; align-items: center;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #666; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  .section-title { font-size: 14px; font-weight: 600; color: #1B3A5C; margin: 28px 0 12px; }
+
+  .cut-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .cut-table th {
+    text-align: left; font-size: 11px; font-weight: 600; color: #FFF;
+    background: #1B3A5C; padding: 8px 12px;
+  }
+  .cut-table td {
+    font-size: 11px; color: #666; padding: 8px 12px;
+    border-bottom: 1px solid #F0F0F0;
+  }
+  .cut-table tr:nth-child(even) td { background: #FAFAFA; }
+  .cut-name { color: #999; text-decoration: line-through; }
+  .cut-pts { font-weight: 600; color: #999; text-align: center; }
+  .cut-reason { color: #888; }
+
+  .totals { display: flex; gap: 24px; margin: 20px 0; }
+  .total-box {
+    padding: 12px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 500;
+  }
+  .total-mvp { background: #EAF3DE; color: #27500A; border: 1px solid #97C459; }
+  .total-cut { background: #FCEBEB; color: #791F1F; border: 1px solid #F09595; }
+  .total-num { font-size: 22px; font-weight: 700; display: block; }
+
+  .footer { margin-top: 24px; font-size: 10px; color: #AAA; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Strategic Synthesis Engine — Prioritized Roadmap</h1>
+<p class="subtitle">Regulated Biotech Client | 12-Week Engagement | Prepared by Tanishk Thorat</p>
+
+<div class="roadmap">
+<div class="grid">
+  <!-- Month headers -->
+  <div class="header-blank"></div>
+  <div class="header-month month-span-4">Month 1: Foundation + POC</div>
+  <div class="header-month month-span-4">Month 2: Pilot + Iteration</div>
+  <div class="header-month month-span-4">Month 3: Scale + Enable</div>
+
+  <!-- Week headers -->
+  <div class="header-blank" style="min-height:24px"></div>
+  <div class="header-week">W1</div><div class="header-week">W2</div><div class="header-week">W3</div><div class="header-week">W4</div>
+  <div class="header-week">W5</div><div class="header-week">W6</div><div class="header-week">W7</div><div class="header-week">W8</div>
+  <div class="header-week">W9</div><div class="header-week">W10</div><div class="header-week">W11</div><div class="header-week">W12</div>
+
+  <!-- TRACK 1: INFRASTRUCTURE + INGESTION -->
+  <div class="track-label tl-blue"><span>Infrastructure<br>& ingestion</span></div>
+  <div class="cell span-2"><div class="bar bar-blue">Discovery + doc audit <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-blue">Infra setup <span class="sp">5</span></div></div>
+  <div class="cell span-4"><div class="bar bar-blue">Ingestion pipeline (PDF, DOCX, text + metadata) <span class="sp">8</span></div></div>
+  <div class="cell span-2"><div class="bar bar-blue bar-sm">Tune chunking <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-blue">Full 50K corpus <span class="sp">5</span></div></div>
+
+  <!-- TRACK 2: CORE PRODUCT -->
+  <div class="track-label tl-purple"><span>Core product<br>(answer engine)</span></div>
+  <div class="cell span-2"><div class="bar bar-gray bar-sm" style="opacity:0.4">Blocked</div></div>
+  <div class="cell span-4"><div class="bar bar-purple">Vector store + hybrid retrieval <span class="sp">8</span></div></div>
+  <div class="cell span-3"><div class="bar bar-purple">AI answer engine + citations <span class="sp">8</span></div></div>
+  <div class="cell span-2"><div class="bar bar-purple bar-sm">Edge cases + follow-up Qs <span class="sp">8</span></div></div>
+  <div class="cell"><div class="bar bar-purple bar-sm">Optimize <span class="sp">5</span></div></div>
+
+  <!-- TRACK 3: INTERFACE -->
+  <div class="track-label tl-teal"><span>Interface<br>(search + viewer)</span></div>
+  <div class="cell span-3"><div class="bar bar-gray bar-sm" style="opacity:0.4">Blocked</div></div>
+  <div class="cell span-3"><div class="bar bar-teal">Search interface + filters <span class="sp">5</span></div></div>
+  <div class="cell span-2"><div class="bar bar-teal">Document viewer + highlighting <span class="sp">5</span></div></div>
+  <div class="cell span-2"><div class="bar bar-teal bar-sm">Layered answers <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-teal bar-sm">Feedback loop <span class="sp">3</span></div></div>
+
+  <!-- TRACK 4: COMPLIANCE + AUDIT -->
+  <div class="track-label tl-gray"><span>Compliance<br>& audit</span></div>
+  <div class="cell span-4"><div class="bar bar-gray bar-sm" style="opacity:0.4"></div></div>
+  <div class="cell span-3"><div class="bar bar-gray">Refusal logic + confidence <span class="sp">5</span></div></div>
+  <div class="cell span-2"><div class="bar bar-gray">Audit trail logging <span class="sp">5</span></div></div>
+  <div class="cell span-2"><div class="bar bar-gray bar-sm">Calibrate refusal <span class="sp">3</span></div></div>
+  <div class="cell"><div class="bar bar-gray bar-sm">Report <span class="sp">3</span></div></div>
+
+  <!-- TRACK 5: CHANGE MANAGEMENT -->
+  <div class="track-label tl-amber"><span>Change mgmt<br>& enablement</span></div>
+  <div class="cell span-2"><div class="bar bar-amber">Stakeholder interviews + buy-in <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-amber bar-sm" style="opacity:0.5">Workflow mapping</div></div>
+  <div class="cell span-4"><div class="bar bar-amber">Pilot onboarding + weekly feedback + champions <span class="sp">2</span></div></div>
+  <div class="cell span-2"><div class="bar bar-amber">Formal enablement program <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-amber bar-sm">Champion-led peer adoption <span class="sp">2</span></div></div>
+
+  <!-- TRACK 6: PILOT + MEASUREMENT -->
+  <div class="track-label tl-coral"><span>Pilot &<br>measurement</span></div>
+  <div class="cell span-4"><div class="bar bar-gray bar-sm" style="opacity:0.3">Pre-pilot</div></div>
+  <div class="cell"><div class="bar bar-coral bar-sm" style="font-size:8px">Launch</div></div>
+  <div class="cell span-3"><div class="bar bar-coral">Pilot: 15-25 users (research + legal) <span class="sp">3</span></div></div>
+  <div class="cell span-2"><div class="bar bar-coral bar-sm">Track adoption by group <span class="sp">2</span></div></div>
+  <div class="cell span-2"><div class="bar bar-coral">Metrics + Phase 2 plan <span class="sp">5</span></div></div>
+
+</div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#D6E4F0;border:1px solid #85B7EB"></div> Infrastructure & ingestion</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#EEEDFE;border:1px solid #AFA9EC"></div> Core product</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#E1F5EE;border:1px solid #5DCAA5"></div> Interface</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#F1EFE8;border:1px solid #B4B2A9"></div> Compliance & audit</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#FFF3E0;border:1px solid #EF9F27"></div> Change management</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#FAECE7;border:1px solid #F0997B"></div> Pilot & measurement</div>
+  <div class="legend-item"><span class="sp" style="margin-left:0">N</span> = Story points</div>
+</div>
+
+<div class="totals">
+  <div class="total-box total-mvp"><span class="total-num">97</span> MVP story points</div>
+  <div class="total-box total-cut"><span class="total-num">52</span> Deferred story points</div>
+</div>
+
+<div class="section-title">Deferred features (high-cost, low-value for MVP)</div>
+<table class="cut-table">
+  <tr>
+    <th style="width:25%">Feature</th>
+    <th style="width:40%">Why deferred</th>
+    <th style="width:10%;text-align:center">Story Pts</th>
+    <th style="width:25%">Revisit when</th>
+  </tr>
+  <tr>
+    <td class="cut-name">Management reporting dashboard</td>
+    <td class="cut-reason">Metrics tracked via audit logs and manual reporting during pilot. Dashboard adds cost without proving core value.</td>
+    <td class="cut-pts">8</td>
+    <td>Scale beyond pilot</td>
+  </tr>
+  <tr>
+    <td class="cut-name">Workflow integrations (Slack, email)</td>
+    <td class="cut-reason">Adds integration complexity. Core product must work standalone first.</td>
+    <td class="cut-pts">8</td>
+    <td>After MVP adoption proven</td>
+  </tr>
+  <tr>
+    <td class="cut-name">Collaborative features</td>
+    <td class="cut-reason">Shared queries, annotations, comments. Does not prove accuracy or adoption.</td>
+    <td class="cut-pts">5</td>
+    <td>Based on user feedback</td>
+  </tr>
+  <tr>
+    <td class="cut-name">Automated report generation</td>
+    <td class="cut-reason">High engineering cost. Requires validated answer quality before automating outputs.</td>
+    <td class="cut-pts">13</td>
+    <td>After citation accuracy proven</td>
+  </tr>
+  <tr>
+    <td class="cut-name">Model fine-tuning</td>
+    <td class="cut-reason">Expensive and slow. RAG with general-purpose models handles 80% of the need.</td>
+    <td class="cut-pts">13</td>
+    <td>Only if retrieval quality plateaus</td>
+  </tr>
+  <tr>
+    <td class="cut-name">Role-based access controls</td>
+    <td class="cut-reason">Needed for org-wide rollout, not for a 15-25 person pilot.</td>
+    <td class="cut-pts">5</td>
+    <td>Before org-wide rollout</td>
+  </tr>
+</table>
+
+<p class="footer">Prepared by Tanishk Thorat | Independent Case Study | 12-Week Engagement</p>
+</div>
+</body>
+</html>
