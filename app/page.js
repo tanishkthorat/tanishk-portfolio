@@ -72,9 +72,9 @@ export default function Home() {
         <p className="text-sm font-mono text-gray-500 mb-2">ABOUT</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Who I am</h2>
         <div className="space-y-4 text-lg text-gray-700 leading-relaxed max-w-3xl">
-          <p>Three-plus years at EY delivering Fortune 500 programs: SAP S/4HANA implementation, PMO leadership, change management, and stakeholder orchestration across hundred-person programs.</p>
-          <p>On my own time I build AI systems. A private RAG platform with dual-GPU inference, a swing trading platform on top of it, and the discipline to ship before optimizing. I built them because I wanted firsthand experience with where these systems break in practice, not just the consulting talking points.</p>
-          <p>I&apos;m looking for product roles at the intersection of enterprise and AI: building, shipping, and learning from real users. If you&apos;re hiring and any of this resonates, I&apos;d love to talk.</p>
+          <p>Three-plus years on Fortune 500 transformation programs: SAP S/4HANA implementations, PMO leadership, change management, stakeholder orchestration across hundred-person programs.</p>
+          <p>Master&apos;s in Business Analytics from Fordham. Bachelor&apos;s in Finance from Mumbai. Based in NYC.</p>
+          <p>Looking for product roles at the intersection of enterprise and AI. If any of this resonates, I&apos;d love to talk.</p>
         </div>
         <div className="mt-8 flex gap-4 flex-wrap">
           <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">LinkedIn</a>
