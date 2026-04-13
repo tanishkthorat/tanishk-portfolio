@@ -46,7 +46,7 @@ export default function Home() {
                   <p className="text-xs font-mono text-gray-500">CASE STUDY 02</p>
                   <span className="text-xs font-mono px-2 py-1 bg-green-50 text-green-800 border border-green-200 rounded">IN ACTIVE DEVELOPMENT</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Trading Platform</h3>
+                <h3 className="text-2xl font-bold mb-3">AI Powered Trading Platform</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">A swing trading research system built on top of the AI Research Platform. Natural-language strategy compilation, deterministic execution, regime-aware risk controls. One user: me. No live trading.</p>
                 <span className="text-sm font-mono text-gray-900">Read case study →</span>
               </div>
@@ -61,10 +61,10 @@ export default function Home() {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <p className="text-xs font-mono text-gray-500">CASE STUDY 03</p>
-                  <span className="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-700 border border-gray-300 rounded">TAKE-HOME, NOT DEPLOYED</span>
+                  <span className="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-700 border border-gray-300 rounded">FICTIONAL CLIENT · STRATEGY EXERCISE</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Strategic Synthesis Engine</h3>
-                <p className="text-gray-600 leading-relaxed">A 12-week deployment plan for a fictional regulated biotech wrestling with 50,000 documents and a legal team that does not trust AI. Take-home turned case study.</p>
+                <p className="text-gray-600 leading-relaxed">A 12-week deployment plan for a fictional regulated biotech wrestling with 50,000 documents and a legal team that does not trust AI.</p>
               </div>
               <span className="text-gray-400 text-2xl mt-1">→</span>
             </div>
