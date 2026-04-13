@@ -7,7 +7,7 @@ export default function Home() {
         <p className="text-sm font-mono text-gray-500 mb-4">TANISHK THORAT</p>
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Hi, I&apos;m Tanishk.</h1>
         <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
-          Senior consultant at EY working on Fortune 500 tech transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks. Mostly the second one. Some of these are running daily. Others are a work in progress.
+          Senior consultant at EY working on Fortune 500 tech transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks (mostly the second one..). Some of these are running daily. Others are a work in progress.
         </p>
         <div className="mt-10 flex gap-4 flex-wrap">
           <a href="#case-studies" className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition">See the projects</a>
