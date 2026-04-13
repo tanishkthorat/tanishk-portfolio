@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --bg: #080a09;
   --bg-raised: #0f1210;
   --fg: #eef1ea;
@@ -18,11 +19,11 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+/* Body defaults to muted; headings opt into text-[var(--fg)] */
 html, body {
   background: var(--bg);
   color: var(--fg-muted);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
