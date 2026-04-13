@@ -5,76 +5,81 @@ export const metadata = {
 
 export default function CaseStudiesIndex() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      <section className="max-w-4xl mx-auto px-6 pt-24 pb-12">
-        <p className="text-sm font-mono text-gray-500 mb-4">
-          <a href="/" className="hover:text-gray-900 transition">TANISHK THORAT</a>
-          {" / "}
-          <span>CASE STUDIES</span>
+    <main className="min-h-screen bg-[var(--bg)] text-[var(--fg-muted)]">
+      <section className="max-w-4xl mx-auto px-6 pt-24 pb-16">
+        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-4">
+          <span className="text-[var(--accent-dim)]">// </span>
+          <span className="text-[var(--accent)]">CASE STUDIES</span>
         </p>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">Three case studies.</h1>
-        <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
+        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Three case studies.</h1>
+        <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
           Two systems I built and operate on my own hardware. One deployment plan for a regulated client. Each one is here because the decisions inside it are worth defending in an interview.
         </p>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 py-12 border-t border-gray-200">
+      <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
         <div className="space-y-6">
 
-          <a href="/case-studies/ai-research-platform" className="block p-8 border border-gray-200 rounded-lg hover:border-gray-900 hover:bg-gray-50 transition">
-            <div className="flex items-start justify-between gap-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3 flex-wrap">
-                  <p className="text-xs font-mono text-gray-500">CASE STUDY 01</p>
-                  <span className="text-xs font-mono px-2 py-1 bg-green-50 text-green-800 border border-green-200 rounded">IN ACTIVE DEVELOPMENT</span>
+          <a href="/case-studies/ai-research-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+            <div className="flex flex-col md:flex-row">
+              <div className="flex-1 p-8">
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">CASE STUDY 01</p>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
                 </div>
-                <h2 className="text-2xl font-bold mb-3">AI Research Platform</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">AI Research Platform</h2>
+                <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)] mb-5">
                   A self-hosted research tool I built to learn where private RAG systems actually break. Dual-GPU inference, a multi-stage pipeline, and a strict no-fabrication discipline. One user: me, daily.
                 </p>
+                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--accent)]">Read case study →</span>
               </div>
-              <span className="text-gray-400 text-2xl mt-1">→</span>
+              <div className="md:w-80 md:flex-shrink-0 border-t md:border-t-0 md:border-l border-[var(--rule)] bg-[var(--bg)]">
+                <img src="/screenshots/research-chat.png" alt="Research platform live query interface" className="w-full h-full object-cover object-left-top" />
+              </div>
             </div>
           </a>
 
-          <a href="/case-studies/trading-platform" className="block p-8 border border-gray-200 rounded-lg hover:border-gray-900 hover:bg-gray-50 transition">
-            <div className="flex items-start justify-between gap-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3 flex-wrap">
-                  <p className="text-xs font-mono text-gray-500">CASE STUDY 02</p>
-                  <span className="text-xs font-mono px-2 py-1 bg-green-50 text-green-800 border border-green-200 rounded">IN ACTIVE DEVELOPMENT</span>
+          <a href="/case-studies/trading-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+            <div className="flex flex-col md:flex-row">
+              <div className="flex-1 p-8">
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">CASE STUDY 02</p>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
                 </div>
-                <h2 className="text-2xl font-bold mb-3">Trading Platform</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Trading Platform</h2>
+                <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)] mb-5">
                   A swing trading research system built on top of the AI Research Platform. Natural-language strategy compilation, deterministic execution, regime-aware risk controls. One user: me. No live trading.
                 </p>
+                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--accent)]">Read case study →</span>
               </div>
-              <span className="text-gray-400 text-2xl mt-1">→</span>
+              <div className="md:w-80 md:flex-shrink-0 border-t md:border-t-0 md:border-l border-[var(--rule)] bg-[var(--bg)]">
+                <img src="/screenshots/trading-strategies.png" alt="Trading platform strategies tab with backtest results" className="w-full h-full object-cover object-left-top" />
+              </div>
             </div>
           </a>
 
-          <a href="/case-studies/strategic-synthesis-engine" className="block p-8 border border-gray-200 rounded-lg hover:border-gray-900 hover:bg-gray-50 transition">
+          <a href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3 flex-wrap">
-                  <p className="text-xs font-mono text-gray-500">CASE STUDY 03</p>
-                  <span className="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-700 border border-gray-300 rounded">NOT-DEPLOYED</span>
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">CASE STUDY 03</p>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--fg-dim)] text-[var(--fg-dim)]">NOT-DEPLOYED</span>
                 </div>
-                <h2 className="text-2xl font-bold mb-3">Strategic Synthesis Engine</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Strategic Synthesis Engine</h2>
+                <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)]">
                   A 12-week deployment plan for a fictional regulated biotech wrestling with 50,000 documents and a legal team that doesn't trust AI. Take-home turned case study.
                 </p>
               </div>
-              <span className="text-gray-400 text-2xl mt-1">→</span>
+              <span className="text-[var(--accent-dim)] text-2xl mt-1">→</span>
             </div>
           </a>
 
         </div>
       </section>
 
-      <footer className="max-w-4xl mx-auto px-6 py-8 border-t border-gray-200 text-sm text-gray-500 mt-12">
+      <footer className="max-w-4xl mx-auto px-6 py-8 border-t border-[var(--rule)] font-mono text-[11px] text-[var(--fg-dim)]">
         <p>
-          <a href="/" className="hover:text-gray-900 transition">← Back to home</a>
+          <a href="/" className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">← Back to home</a>
         </p>
       </footer>
     </main>
