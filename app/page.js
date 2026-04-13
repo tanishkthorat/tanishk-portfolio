@@ -13,8 +13,8 @@ export default function Home() {
           Senior consultant at EY working on Fortune 500 tech transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks (mostly the second one..). Some of these are running daily. Others are a work in progress.
         </p>
         <div className="mt-10 flex gap-3 flex-wrap">
-          <a href="#case-studies" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors">See the projects</a>
-          <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[9px] border border-[var(--accent-dim)] text-[var(--accent)] hover:border-[var(--accent)] transition-colors">LinkedIn</a>
+          <a href="#case-studies" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">See the projects</a>
+          <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[9px] border border-[var(--accent-dim)] text-[var(--accent)] hover:border-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">LinkedIn</a>
         </div>
       </section>
 
@@ -28,7 +28,7 @@ export default function Home() {
 
         <div className="space-y-6">
 
-          <a href="/case-studies/ai-research-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden">
+          <a href="/case-studies/ai-research-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex flex-col md:flex-row">
               <div className="flex-1 p-8">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a href="/case-studies/trading-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden">
+          <a href="/case-studies/trading-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex flex-col md:flex-row">
               <div className="flex-1 p-8">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors">
+          <a href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -92,8 +92,8 @@ export default function Home() {
           <p>Looking for product roles at the intersection of enterprise and AI. If any of this resonates, I&apos;d love to talk.</p>
         </div>
         <div className="mt-10 flex gap-3 flex-wrap">
-          <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors">LinkedIn</a>
-          <a href="https://github.com/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[9px] border border-[var(--accent-dim)] text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">LinkedIn</a>
+          <a href="https://github.com/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[9px] border border-[var(--accent-dim)] text-[var(--accent)] hover:border-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">GitHub</a>
         </div>
       </section>
 
