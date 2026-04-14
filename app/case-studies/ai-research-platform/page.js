@@ -211,10 +211,10 @@ export default function AIResearchPlatform() {
             I wanted a research tool that did three things at once: hold my full book library as a queryable knowledge base, pull live information from the web when the books were not enough, and feed both into my research workflow. The hosted options each failed on at least one axis. ChatGPT could not ingest my library without losing it on reset. NotebookLM held documents but could not reach the web. None of them let me see or change what was happening between question and answer.
           </p>
           <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
-            The trigger that made me actually start building was a hallucination. I asked a hosted model to research a ticker and it returned confident, specific numbers that were fabricated. Not "I don't know," not a refusal, just made-up financials presented as fact. I decided I needed a system where I could see and shape every step between the question and the answer, instead of trusting a black box.
+            The trigger that made me actually start building was a hallucination. I asked a hosted model to pull a quote from a specific chapter of a book I was reading, and it returned a confident, well-formatted passage complete with a page reference. The quote did not exist. Not "I don't know," not a refusal, just made-up prose presented as fact. I decided I needed a system where I could see and shape every step between the question and the answer, instead of trusting a black box.
           </p>
           <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
-            A secondary motivation: I work in enterprise AI consulting. I wanted to know firsthand where these systems break, not secondhand from vendor decks.
+            A secondary motivation: I work in enterprise tech transformation consulting. I wanted firsthand answers to the questions clients actually ask — where these systems break, how you make them better, which levers move outcomes. The kind of answers you only get by building one.
           </p>
         </div>
       </section>
