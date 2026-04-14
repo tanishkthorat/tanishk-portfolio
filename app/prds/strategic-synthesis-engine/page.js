@@ -29,11 +29,6 @@ export default function StrategicSynthesisEnginePRD() {
       {/* Hero */}
       <section className="max-w-[640px] mx-auto px-6 pb-8">
         <SectionEyebrow>PRD</SectionEyebrow>
-        <div className="mt-4 mb-6">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--fg-dim)] text-[var(--fg-dim)]">
-            FICTIONAL CLIENT · STRATEGY EXERCISE
-          </span>
-        </div>
         <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Strategic Synthesis Engine</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px] mb-8">
           Product Requirements Document
