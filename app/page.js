@@ -80,9 +80,9 @@ export default function Home() {
         <SectionEyebrow>ABOUT</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-8">Who I am</h2>
         <div className="space-y-4 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
-          <p>Three-plus years on Fortune 500 transformation programs: SAP S/4HANA implementations, PMO leadership, change management, stakeholder orchestration across hundred-person programs.</p>
-          <p>Master&apos;s in Business Analytics from Fordham. Bachelor&apos;s from Mumbai. Based in NYC.</p>
-          <p>Looking for product roles at the intersection of enterprise and AI. If any of this resonates, I&apos;d love to talk.</p>
+          <p>3+ years on Fortune 500 transformation programs: tech implementations, project management, change management, and delivery planning across hundred-person programs.</p>
+          <p>M.S. in Analytics from Fordham. Bachelor&apos;s in Finance from Mumbai. Based in NYC.</p>
+          <p>Contact: <a href="mailto:tanishkthorat7@gmail.com" className="text-[var(--accent)] underline decoration-[var(--accent-dim)] underline-offset-4 hover:decoration-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">tanishkthorat7@gmail.com</a></p>
         </div>
         <div className="mt-10 flex gap-3 flex-wrap">
           <a href="https://www.linkedin.com/in/tanishkthorat" target="_blank" rel="noopener noreferrer" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">LinkedIn</a>
