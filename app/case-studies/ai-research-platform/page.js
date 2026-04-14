@@ -278,7 +278,6 @@ export default function AIResearchPlatform() {
         <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">How the pipeline runs</h2>
 
-        {/* TODO: redraw for dark background — diagram was restyled in place, but dense node-graph layouts like this are better as a single re-exported SVG; revisit in design pass */}
         <ResearchPipelineDiagram />
 
         <div className="max-w-[640px]">
