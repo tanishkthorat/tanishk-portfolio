@@ -265,9 +265,12 @@ export default function AIResearchPlatform() {
 
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-2">DECISION 05</p>
-            <h3 className="font-mono text-xl font-medium tracking-[-0.005em] text-[var(--fg)] mt-4 mb-4">No multi-agent council pattern</h3>
+            <h3 className="font-mono text-xl font-medium tracking-[-0.005em] text-[var(--fg)] mt-4 mb-4">No multi-agent council pattern (yet)</h3>
             <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
-              I considered the council/swarm pattern: run several model instances with different personas, vote on answers. Interesting, and not what I needed. My problem was hallucination on factual research, not disagreement on subjective judgment. Voting between confabulators produces confident consensus on fabricated data. I noted the pattern and moved on.
+              I considered the council/swarm pattern: run several model instances with different personas, vote on answers. Interesting, but not what I needed for the initial build. My problem was hallucination on factual research, not disagreement on subjective judgment. Voting between confabulators produces confident consensus on fabricated data.
+            </p>
+            <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
+              That said, this is a pattern I&apos;m genuinely interested in exploring. Once the core pipeline is solid and Sentinel routing is complete, multi-agent verification is on the roadmap.
             </p>
           </div>
         </div>
