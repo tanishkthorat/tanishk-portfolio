@@ -12,7 +12,7 @@
   --rule: #1e2620;
 }
 
-:root[data-theme="light"] {
+html.theme-light {
   color-scheme: light;
   --bg: #ffffff;
   --bg-raised: #f7f7f6;

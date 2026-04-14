@@ -6,12 +6,23 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? window.localStorage.getItem("theme") : null;
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved);
-    } else if (typeof document !== "undefined" && document.documentElement.getAttribute("data-theme") === "light") {
-      setTheme("light");
+    const root = document.documentElement;
+    let current = "dark";
+    try {
+      const saved = window.localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        current = saved;
+      }
+    } catch (e) {}
+    if (root.classList.contains("theme-light")) {
+      current = "light";
     }
+    if (current === "light") {
+      root.classList.add("theme-light");
+    } else {
+      root.classList.remove("theme-light");
+    }
+    setTheme(current);
   }, []);
 
   const toggle = () => {
@@ -20,10 +31,11 @@ export function ThemeToggle() {
     try {
       window.localStorage.setItem("theme", next);
     } catch (e) {}
+    const root = document.documentElement;
     if (next === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
+      root.classList.add("theme-light");
     } else {
-      document.documentElement.removeAttribute("data-theme");
+      root.classList.remove("theme-light");
     }
   };
 
