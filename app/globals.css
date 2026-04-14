@@ -12,6 +12,18 @@
   --rule: #1e2620;
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-raised: #f7f7f6;
+  --fg: #0a0a0a;
+  --fg-muted: #3a3a3a;
+  --fg-dim: #7a7a7a;
+  --accent: #0a0a0a;
+  --accent-dim: #9a9a9a;
+  --rule: #e5e5e5;
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--fg);
@@ -24,6 +36,7 @@ html, body {
   background: var(--bg);
   color: var(--fg-muted);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 ::selection {
