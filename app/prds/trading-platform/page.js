@@ -44,9 +44,9 @@ export default function TradingPlatformPRD() {
       </section>
 
       {/* Body */}
-      <div className="max-w-[980px] mx-auto px-6 py-12 lg:flex lg:gap-16">
-        <aside className="lg:w-48 lg:flex-shrink-0 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
-          <nav aria-label="Table of contents" className="my-10 lg:my-0 border-t border-b border-[var(--rule)] lg:border-0 py-6 lg:py-0">
+      <div className="relative max-w-[640px] mx-auto px-6 py-12">
+        <aside className="my-10 py-6 border-t border-b border-[var(--rule)] lg:my-0 lg:py-0 lg:border-0 lg:absolute lg:top-12 lg:bottom-12 lg:right-full lg:mr-16 lg:w-48">
+          <nav aria-label="Table of contents" className="lg:sticky lg:top-24">
             <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
             <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
               <li><a href="#overview" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Overview</a></li>
@@ -64,7 +64,7 @@ export default function TradingPlatformPRD() {
           </nav>
         </aside>
 
-        <article className="lg:flex-1 lg:min-w-0 lg:max-w-[640px]">
+        <article>
 
         <section id="overview">
           <h2 className="font-mono text-2xl md:text-3xl font-medium tracking-[-0.005em] text-[var(--fg)] mt-16 mb-5">1. Overview</h2>
