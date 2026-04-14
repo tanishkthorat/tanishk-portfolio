@@ -46,6 +46,24 @@ export default function AIResearchPlatformPRD() {
       {/* Body */}
       <article className="max-w-[640px] mx-auto px-6 py-12">
 
+        {/* Table of contents — inline list at top of body column */}
+        <nav aria-label="Table of contents" className="my-10 border-t border-b border-[var(--rule)] py-6">
+          <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
+          <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
+            <li><a href="#overview" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Overview</a></li>
+            <li><a href="#goals" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">2. Goals &amp; non-goals</a></li>
+            <li><a href="#personas" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">3. User personas</a></li>
+            <li><a href="#metrics" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">4. Success metrics</a></li>
+            <li><a href="#functional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">5. Functional requirements</a></li>
+            <li><a href="#nonfunctional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">6. Non-functional requirements</a></li>
+            <li><a href="#acceptance" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">7. Acceptance criteria</a></li>
+            <li><a href="#architecture" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">8. Architecture</a></li>
+            <li><a href="#oos" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">9. Out of scope</a></li>
+            <li><a href="#open" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">10. Open questions</a></li>
+            <li><a href="#appendix" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">11. Design decisions</a></li>
+          </ol>
+        </nav>
+
         <section id="overview">
           <h2 className="font-mono text-2xl md:text-3xl font-medium tracking-[-0.005em] text-[var(--fg)] mt-16 mb-5">1. Overview</h2>
           <p className="font-sans text-[16px] leading-[1.7] text-[var(--fg-muted)] mb-5">The AI Research Platform is a self-hosted research tool that combines a private document library with live web retrieval and runs entirely on local hardware. It is designed to answer research questions by assembling context from multiple sources in a multi-stage pipeline, then synthesizing an answer through a local large language model. The platform exists because hosted alternatives fail on at least one of three axes that matter for serious research work: persistent personal libraries, live web access, or inspectability of the pipeline between question and answer.</p>
