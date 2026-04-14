@@ -8,7 +8,6 @@ export default function CaseStudiesIndex() {
     <main className="min-h-screen bg-[var(--bg)] text-[var(--fg-muted)]">
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-16">
         <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-4">
-          <span className="text-[var(--accent-dim)]">// </span>
           <a
             href="/"
             className="text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2"

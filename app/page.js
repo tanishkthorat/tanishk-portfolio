@@ -1,13 +1,12 @@
+import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--bg)] text-[var(--fg-muted)]">
 
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-16">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-4">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">TANISHK THORAT</span>
-        </p>
+        <SectionEyebrow className="mb-4">TANISHK THORAT</SectionEyebrow>
         <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Hi, I&apos;m Tanishk.</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
           Senior consultant at EY working on Fortune 500 tech transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks (mostly the second one..). Some of these are running daily. Others are a work in progress.
@@ -20,10 +19,7 @@ export default function Home() {
 
       {/* Three case study cards */}
       <section id="case-studies" className="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">CASE STUDIES</span>
-        </p>
+        <SectionEyebrow>CASE STUDIES</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-12">What I&apos;ve built</h2>
 
         <div className="space-y-6">
@@ -81,10 +77,7 @@ export default function Home() {
 
       {/* About */}
       <section className="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">ABOUT</span>
-        </p>
+        <SectionEyebrow>ABOUT</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-8">Who I am</h2>
         <div className="space-y-4 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
           <p>Three-plus years on Fortune 500 transformation programs: SAP S/4HANA implementations, PMO leadership, change management, stakeholder orchestration across hundred-person programs.</p>

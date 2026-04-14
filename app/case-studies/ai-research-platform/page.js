@@ -1,7 +1,146 @@
+import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
+
 export const metadata = {
   title: "AI Research Platform — Tanishk Thorat",
   description: "A self-hosted RAG and research platform with dual-GPU inference, multi-stage retrieval pipeline, and strict no-fabrication discipline.",
 };
+
+const TABLE_CELL = "py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]";
+const TABLE_HEADER = "font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]";
+const TABLE_LABEL = "font-mono text-[13px] text-[var(--fg)]";
+
+function ResearchPipelineDiagram() {
+  return (
+    <figure className="my-10 border border-[var(--rule)] bg-[var(--bg-raised)] p-6">
+      <figcaption className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-4">RESEARCH PIPELINE · PER REQUEST</figcaption>
+
+      <div className="text-[var(--accent-dim)]">
+        {/* Stage 1: Request */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--fg)]">Request</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">HTTP / Telegram</p>
+          </div>
+        </div>
+
+        {/* Vertical connector */}
+        <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
+          <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 2: Classify query */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--fg)]">Classify query</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">intent + routing</p>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
+          <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 3: Rewrite + decompose */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--fg)]">Rewrite + decompose</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">multi-part → sub-queries</p>
+          </div>
+        </div>
+
+        {/* Connector: 1 → 2 fan-out */}
+        <svg viewBox="0 0 100 20" preserveAspectRatio="none" className="w-full h-5">
+          <line x1="50" y1="0" x2="50" y2="10" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="25" y1="10" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="25" y1="10" x2="25" y2="20" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="75" y1="10" x2="75" y2="20" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 4: Parallel retrieval (Local vs Web, asymmetric depth) */}
+        <div className="flex items-stretch">
+          {/* Local branch */}
+          <div className="flex-1 px-1.5 flex flex-col items-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-1">LOCAL BRANCH</p>
+            <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+              <p className="font-mono text-sm font-medium text-[var(--fg)]">Local RAG</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">ChromaDB · ~20k passages</p>
+            </div>
+            <div className="flex-1 w-px bg-[var(--accent-dim)]"></div>
+          </div>
+
+          {/* Web branch - deeper sub-pipeline */}
+          <div className="flex-1 px-1.5 flex flex-col items-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-1">WEB BRANCH</p>
+            <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+              <p className="font-mono text-sm font-medium text-[var(--fg)]">Web search</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">SearXNG · 10–20 candidates</p>
+            </div>
+            <div className="w-px h-4 bg-[var(--accent-dim)]"></div>
+            <div className="w-full px-3 py-2 bg-[var(--accent)] border border-[var(--accent)] text-center">
+              <p className="font-mono text-sm font-medium text-[var(--bg)]">LLM fetch selection</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--bg)] opacity-80">picks URLs worth fetching</p>
+            </div>
+            <div className="w-px h-4 bg-[var(--accent-dim)]"></div>
+            <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+              <p className="font-mono text-sm font-medium text-[var(--fg)]">Fetch + summarize</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">per-page compression</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Connector: 2 → 1 fan-in */}
+        <svg viewBox="0 0 100 20" preserveAspectRatio="none" className="w-full h-5">
+          <line x1="25" y1="0" x2="25" y2="10" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="75" y1="0" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="25" y1="10" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
+          <line x1="50" y1="10" x2="50" y2="20" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 5: Context assembly */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--fg)]">Context assembly</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">local + web labeled separately</p>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
+          <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 6: Brain */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 bg-[var(--accent)] border border-[var(--accent)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--bg)]">Brain</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--bg)] opacity-80">Qwen3.5-27B · RTX 5070 Ti · :11434</p>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
+          <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
+        </svg>
+
+        {/* Stage 7: Response */}
+        <div className="flex justify-center">
+          <div className="px-4 py-2 border border-[var(--accent)] text-center">
+            <p className="font-mono text-sm font-medium text-[var(--accent)]">Response with sources</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Sentinel idle sidecar */}
+      <div className="mt-6 pt-4 border-t border-dashed border-[var(--rule)]">
+        <div className="flex items-center gap-3">
+          <div className="px-3 py-2 bg-[var(--bg)] border border-dashed border-[var(--rule)]">
+            <p className="font-mono text-sm font-medium text-[var(--fg-dim)]">Sentinel</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">Qwen3.5-4B · RTX 2060</p>
+          </div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">loaded and health-checked · idle in the research path</p>
+        </div>
+      </div>
+    </figure>
+  );
+}
 
 export default function AIResearchPlatform() {
   return (
@@ -9,7 +148,6 @@ export default function AIResearchPlatform() {
       {/* Header */}
       <nav className="max-w-4xl mx-auto px-6 pt-24 pb-8">
         <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-4">
-          <span className="text-[var(--accent-dim)]">// </span>
           <a href="/" className="text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">TANISHK THORAT</a>
           <span className="text-[var(--fg-dim)]"> / </span>
           <a href="/case-studies" className="text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">CASE STUDIES</a>
@@ -35,32 +173,29 @@ export default function AIResearchPlatform() {
 
       {/* System at a Glance */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">SYSTEM AT A GLANCE</span>
-        </p>
+        <SectionEyebrow>SYSTEM AT A GLANCE</SectionEyebrow>
         <div className="mt-6 overflow-x-auto">
           <table className="w-full text-left">
             <tbody className="divide-y divide-[var(--rule)]">
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top w-40">Infrastructure</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">3 LLM servers across 2 GPUs: Brain (27B) on RTX 5070 Ti, Sentinel (4B) on RTX 2060, Embed on CPU</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top w-40`}>Infrastructure</td>
+                <td className={TABLE_CELL}>3 LLM servers across 2 GPUs: Brain (27B) on RTX 5070 Ti, Sentinel (4B) on RTX 2060, Embed on CPU</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Knowledge base</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">200+ books on philosophy, political theory, and history (~20,000 searchable passages), plus ~150 cached web pages</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Knowledge base</td>
+                <td className={TABLE_CELL}>200+ books on philosophy, political theory, and history (~20,000 searchable passages), plus ~150 cached web pages</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">API surface</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">20 endpoints via FastAPI, plus a Telegram bot</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>API surface</td>
+                <td className={TABLE_CELL}>20 endpoints via FastAPI, plus a Telegram bot</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Resilience</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">If any component goes down (web search, embeddings, either LLM), the system continues with reduced capability instead of failing entirely</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Resilience</td>
+                <td className={TABLE_CELL}>If any component goes down (web search, embeddings, either LLM), the system continues with reduced capability instead of failing entirely</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">In use since</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">December 2025, 10–20 queries per day</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>In use since</td>
+                <td className={TABLE_CELL}>December 2025, 10–20 queries per day</td>
               </tr>
             </tbody>
           </table>
@@ -69,10 +204,7 @@ export default function AIResearchPlatform() {
 
       {/* Problem */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">PROBLEM</span>
-        </p>
+        <SectionEyebrow>PROBLEM</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">Why I built this instead of using something off the shelf</h2>
         <div className="max-w-[640px]">
           <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
@@ -89,10 +221,7 @@ export default function AIResearchPlatform() {
 
       {/* Key Decisions */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">KEY DECISIONS</span>
-        </p>
+        <SectionEyebrow>KEY DECISIONS</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-8">Five decisions that shaped the system</h2>
 
         <div className="space-y-12 max-w-[640px]">
@@ -146,141 +275,11 @@ export default function AIResearchPlatform() {
 
       {/* Architecture */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">ARCHITECTURE</span>
-        </p>
+        <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">How the pipeline runs</h2>
 
         {/* TODO: redraw for dark background — diagram was restyled in place, but dense node-graph layouts like this are better as a single re-exported SVG; revisit in design pass */}
-        <figure className="my-10 border border-[var(--rule)] bg-[var(--bg-raised)] p-6">
-          <figcaption className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-4">RESEARCH PIPELINE · PER REQUEST</figcaption>
-
-          <div className="text-[var(--accent-dim)]">
-            {/* Stage 1: Request */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--fg)]">Request</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">HTTP / Telegram</p>
-              </div>
-            </div>
-
-            {/* Vertical connector */}
-            <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
-              <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 2: Classify query */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--fg)]">Classify query</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">intent + routing</p>
-              </div>
-            </div>
-
-            <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
-              <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 3: Rewrite + decompose */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--fg)]">Rewrite + decompose</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">multi-part → sub-queries</p>
-              </div>
-            </div>
-
-            {/* Connector: 1 → 2 fan-out */}
-            <svg viewBox="0 0 100 20" preserveAspectRatio="none" className="w-full h-5">
-              <line x1="50" y1="0" x2="50" y2="10" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="25" y1="10" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="25" y1="10" x2="25" y2="20" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="75" y1="10" x2="75" y2="20" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 4: Parallel retrieval (Local vs Web, asymmetric depth) */}
-            <div className="flex items-stretch">
-              {/* Local branch */}
-              <div className="flex-1 px-1.5 flex flex-col items-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-1">LOCAL BRANCH</p>
-                <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                  <p className="font-mono text-sm font-medium text-[var(--fg)]">Local RAG</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">ChromaDB · ~20k passages</p>
-                </div>
-                <div className="flex-1 w-px bg-[var(--accent-dim)]"></div>
-              </div>
-
-              {/* Web branch - deeper sub-pipeline */}
-              <div className="flex-1 px-1.5 flex flex-col items-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)] mb-1">WEB BRANCH</p>
-                <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                  <p className="font-mono text-sm font-medium text-[var(--fg)]">Web search</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">SearXNG · 10–20 candidates</p>
-                </div>
-                <div className="w-px h-4 bg-[var(--accent-dim)]"></div>
-                <div className="w-full px-3 py-2 bg-[var(--accent)] border border-[var(--accent)] text-center">
-                  <p className="font-mono text-sm font-medium text-[var(--bg)]">LLM fetch selection</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--bg)] opacity-80">picks URLs worth fetching</p>
-                </div>
-                <div className="w-px h-4 bg-[var(--accent-dim)]"></div>
-                <div className="w-full px-3 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                  <p className="font-mono text-sm font-medium text-[var(--fg)]">Fetch + summarize</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">per-page compression</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Connector: 2 → 1 fan-in */}
-            <svg viewBox="0 0 100 20" preserveAspectRatio="none" className="w-full h-5">
-              <line x1="25" y1="0" x2="25" y2="10" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="75" y1="0" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="25" y1="10" x2="75" y2="10" stroke="currentColor" strokeWidth="0.4" />
-              <line x1="50" y1="10" x2="50" y2="20" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 5: Context assembly */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 bg-[var(--bg)] border border-[var(--rule)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--fg)]">Context assembly</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">local + web labeled separately</p>
-              </div>
-            </div>
-
-            <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
-              <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 6: Brain */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 bg-[var(--accent)] border border-[var(--accent)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--bg)]">Brain</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--bg)] opacity-80">Qwen3.5-27B · RTX 5070 Ti · :11434</p>
-              </div>
-            </div>
-
-            <svg viewBox="0 0 100 16" preserveAspectRatio="none" className="w-full h-4">
-              <line x1="50" y1="0" x2="50" y2="16" stroke="currentColor" strokeWidth="0.4" />
-            </svg>
-
-            {/* Stage 7: Response */}
-            <div className="flex justify-center">
-              <div className="px-4 py-2 border border-[var(--accent)] text-center">
-                <p className="font-mono text-sm font-medium text-[var(--accent)]">Response with sources</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Sentinel idle sidecar */}
-          <div className="mt-6 pt-4 border-t border-dashed border-[var(--rule)]">
-            <div className="flex items-center gap-3">
-              <div className="px-3 py-2 bg-[var(--bg)] border border-dashed border-[var(--rule)]">
-                <p className="font-mono text-sm font-medium text-[var(--fg-dim)]">Sentinel</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">Qwen3.5-4B · RTX 2060</p>
-              </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">loaded and health-checked · idle in the research path</p>
-            </div>
-          </div>
-        </figure>
+        <ResearchPipelineDiagram />
 
         <div className="max-w-[640px]">
           <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5">
@@ -297,10 +296,7 @@ export default function AIResearchPlatform() {
 
       {/* Failure Handling */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">FAILURE HANDLING</span>
-        </p>
+        <SectionEyebrow>FAILURE HANDLING</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">When things break</h2>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5 max-w-[640px]">
           The system is designed to keep working when individual components fail:
@@ -310,30 +306,30 @@ export default function AIResearchPlatform() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-[var(--rule)]">
-                <th className="py-3 pr-4 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">Component down</th>
-                <th className="py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">What happens</th>
+                <th className={`py-3 pr-4 ${TABLE_HEADER}`}>Component down</th>
+                <th className={`py-3 ${TABLE_HEADER}`}>What happens</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--rule)]">
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Brain (27B)</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">Chat fails, but the web cache and document index remain available for the next session</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Brain (27B)</td>
+                <td className={TABLE_CELL}>Chat fails, but the web cache and document index remain available for the next session</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Sentinel (4B)</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">Memory summarization is skipped. The system logs a warning and continues.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Sentinel (4B)</td>
+                <td className={TABLE_CELL}>Memory summarization is skipped. The system logs a warning and continues.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Embed server</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">RAG retrieval fails. Workaround: turn off the RAG toggle and rely on web-only or conversation context.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Embed server</td>
+                <td className={TABLE_CELL}>RAG retrieval fails. Workaround: turn off the RAG toggle and rely on web-only or conversation context.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">SearXNG (web search)</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">Web pipeline returns zero candidates. The model still answers using the local library and its own training knowledge.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>SearXNG (web search)</td>
+                <td className={TABLE_CELL}>Web pipeline returns zero candidates. The model still answers using the local library and its own training knowledge.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">SQLite (memory)</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">Memory operations log a warning and retry. Chat continues without persistent history if the lock persists.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>SQLite (memory)</td>
+                <td className={TABLE_CELL}>Memory operations log a warning and retry. Chat continues without persistent history if the lock persists.</td>
               </tr>
             </tbody>
           </table>
@@ -346,10 +342,7 @@ export default function AIResearchPlatform() {
 
       {/* Observed Performance */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">OBSERVED PERFORMANCE</span>
-        </p>
+        <SectionEyebrow>OBSERVED PERFORMANCE</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">Four months of daily use</h2>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] mb-5 max-w-[640px]">
           The system has been my primary research tool since December 2025, averaging 10–20 queries per day.
@@ -359,26 +352,26 @@ export default function AIResearchPlatform() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-[var(--rule)]">
-                <th className="py-3 pr-4 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">Metric</th>
-                <th className="py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">Observed</th>
+                <th className={`py-3 pr-4 ${TABLE_HEADER}`}>Metric</th>
+                <th className={`py-3 ${TABLE_HEADER}`}>Observed</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--rule)]">
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Latency</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">5–10 seconds per query, driven by model size and available compute. Cold starts after a reboot can take 30+ seconds while the model loads into VRAM.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Latency</td>
+                <td className={TABLE_CELL}>5–10 seconds per query, driven by model size and available compute. Cold starts after a reboot can take 30+ seconds while the model loads into VRAM.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Fabricated sources</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">Zero since the anti-fabrication prompt was added. Early versions did hallucinate citations, which is what triggered the fix.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Fabricated sources</td>
+                <td className={TABLE_CELL}>Zero since the anti-fabrication prompt was added. Early versions did hallucinate citations, which is what triggered the fix.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Knowledge base</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">~20,000 passages from 200+ books, ~150 cached web pages. Both collections continue to grow.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Knowledge base</td>
+                <td className={TABLE_CELL}>~20,000 passages from 200+ books, ~150 cached web pages. Both collections continue to grow.</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4 font-mono text-[13px] text-[var(--fg)] whitespace-nowrap align-top">Web cache hit rate</td>
-                <td className="py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]">~30% of web queries serve from cache, reducing redundant fetches and improving response time for repeated topics.</td>
+                <td className={`py-3 pr-4 ${TABLE_LABEL} whitespace-nowrap align-top`}>Web cache hit rate</td>
+                <td className={TABLE_CELL}>~30% of web queries serve from cache, reducing redundant fetches and improving response time for repeated topics.</td>
               </tr>
             </tbody>
           </table>
@@ -391,10 +384,7 @@ export default function AIResearchPlatform() {
 
       {/* What's Next */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">WHAT'S NEXT</span>
-        </p>
+        <SectionEyebrow>WHAT'S NEXT</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-8">In order</h2>
 
         <div className="space-y-6 max-w-[640px]">
@@ -426,10 +416,7 @@ export default function AIResearchPlatform() {
 
       {/* Deliverables */}
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
-        <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-3">
-          <span className="text-[var(--accent-dim)]">// </span>
-          <span className="text-[var(--accent)]">DELIVERABLES</span>
-        </p>
+        <SectionEyebrow>DELIVERABLES</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mt-6 mb-6">Receipts</h2>
 
         <a href="https://github.com/tanishkthorat/notes-on-private-rag-systems" target="_blank" rel="noopener noreferrer" className="block p-6 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
@@ -440,11 +427,11 @@ export default function AIResearchPlatform() {
       </section>
 
       {/* Back link */}
-      <footer className="max-w-4xl mx-auto px-6 py-8 border-t border-[var(--rule)] font-mono text-[11px] text-[var(--fg-dim)]">
+      <section className="max-w-4xl mx-auto px-6 py-8 border-t border-[var(--rule)] font-mono text-[11px] text-[var(--fg-dim)]">
         <p>
           <a href="/case-studies" className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">← Back to case studies</a>
         </p>
-      </footer>
+      </section>
     </main>
   );
 }
