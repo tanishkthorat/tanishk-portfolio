@@ -55,26 +55,28 @@ export default function StrategicSynthesisEnginePRD() {
       </section>
 
       {/* Body */}
-      <article className="max-w-[640px] mx-auto px-6 py-12">
+      <div className="max-w-[980px] mx-auto px-6 py-12 lg:flex lg:gap-16">
+        <aside className="lg:w-48 lg:flex-shrink-0 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+          <nav aria-label="Table of contents" className="my-10 lg:my-0 border-t border-b border-[var(--rule)] lg:border-0 py-6 lg:py-0">
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
+            <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
+              <li><a href="#goals" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Goals</a></li>
+              <li><a href="#scope" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">2. Scope</a></li>
+              <li><a href="#users" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">3. Users and pain points</a></li>
+              <li><a href="#features" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">4. Features and acceptance criteria</a></li>
+              <li><a href="#ux" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">5. User experience and flows</a></li>
+              <li><a href="#metrics" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">6. Success metrics</a></li>
+              <li><a href="#evaluation" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">7. Evaluation methodology</a></li>
+              <li><a href="#constraints" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">8. Constraints and considerations</a></li>
+              <li><a href="#technical" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">9. Technical requirements</a></li>
+              <li><a href="#dependencies" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">10. Dependencies</a></li>
+              <li><a href="#blockers" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">11. Potential blockers</a></li>
+              <li><a href="#questions" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">12. Open questions</a></li>
+            </ol>
+          </nav>
+        </aside>
 
-        {/* Table of contents */}
-        <nav aria-label="Table of contents" className="my-10 border-t border-b border-[var(--rule)] py-6">
-          <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
-          <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
-            <li><a href="#goals" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Goals</a></li>
-            <li><a href="#scope" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">2. Scope</a></li>
-            <li><a href="#users" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">3. Users and pain points</a></li>
-            <li><a href="#features" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">4. Features and acceptance criteria</a></li>
-            <li><a href="#ux" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">5. User experience and flows</a></li>
-            <li><a href="#metrics" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">6. Success metrics</a></li>
-            <li><a href="#evaluation" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">7. Evaluation methodology</a></li>
-            <li><a href="#constraints" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">8. Constraints and considerations</a></li>
-            <li><a href="#technical" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">9. Technical requirements</a></li>
-            <li><a href="#dependencies" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">10. Dependencies</a></li>
-            <li><a href="#blockers" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">11. Potential blockers</a></li>
-            <li><a href="#questions" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">12. Open questions</a></li>
-          </ol>
-        </nav>
+        <article className="lg:flex-1 lg:min-w-0 lg:max-w-[640px]">
 
         {/* 1. Goals */}
         <section id="goals">
@@ -467,6 +469,7 @@ export default function StrategicSynthesisEnginePRD() {
         </section>
 
       </article>
+      </div>
 
       {/* Back link */}
       <section className="max-w-[640px] mx-auto px-6 py-8 border-t border-[var(--rule)]">

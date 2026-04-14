@@ -44,25 +44,27 @@ export default function AIResearchPlatformPRD() {
       </section>
 
       {/* Body */}
-      <article className="max-w-[640px] mx-auto px-6 py-12">
+      <div className="max-w-[980px] mx-auto px-6 py-12 lg:flex lg:gap-16">
+        <aside className="lg:w-48 lg:flex-shrink-0 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+          <nav aria-label="Table of contents" className="my-10 lg:my-0 border-t border-b border-[var(--rule)] lg:border-0 py-6 lg:py-0">
+            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
+            <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
+              <li><a href="#overview" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Overview</a></li>
+              <li><a href="#goals" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">2. Goals &amp; non-goals</a></li>
+              <li><a href="#personas" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">3. User personas</a></li>
+              <li><a href="#metrics" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">4. Success metrics</a></li>
+              <li><a href="#functional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">5. Functional requirements</a></li>
+              <li><a href="#nonfunctional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">6. Non-functional requirements</a></li>
+              <li><a href="#acceptance" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">7. Acceptance criteria</a></li>
+              <li><a href="#architecture" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">8. Architecture</a></li>
+              <li><a href="#oos" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">9. Out of scope</a></li>
+              <li><a href="#open" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">10. Open questions</a></li>
+              <li><a href="#appendix" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">11. Design decisions</a></li>
+            </ol>
+          </nav>
+        </aside>
 
-        {/* Table of contents — inline list at top of body column */}
-        <nav aria-label="Table of contents" className="my-10 border-t border-b border-[var(--rule)] py-6">
-          <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
-          <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
-            <li><a href="#overview" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Overview</a></li>
-            <li><a href="#goals" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">2. Goals &amp; non-goals</a></li>
-            <li><a href="#personas" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">3. User personas</a></li>
-            <li><a href="#metrics" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">4. Success metrics</a></li>
-            <li><a href="#functional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">5. Functional requirements</a></li>
-            <li><a href="#nonfunctional" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">6. Non-functional requirements</a></li>
-            <li><a href="#acceptance" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">7. Acceptance criteria</a></li>
-            <li><a href="#architecture" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">8. Architecture</a></li>
-            <li><a href="#oos" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">9. Out of scope</a></li>
-            <li><a href="#open" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">10. Open questions</a></li>
-            <li><a href="#appendix" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">11. Design decisions</a></li>
-          </ol>
-        </nav>
+        <article className="lg:flex-1 lg:min-w-0 lg:max-w-[640px]">
 
         <section id="overview">
           <h2 className="font-mono text-2xl md:text-3xl font-medium tracking-[-0.005em] text-[var(--fg)] mt-16 mb-5">1. Overview</h2>
@@ -200,7 +202,8 @@ export default function AIResearchPlatformPRD() {
           <p className="font-sans text-[16px] leading-[1.7] text-[var(--fg-muted)] mb-5">The reasoning behind specific architectural choices — pipeline versus chat wrapper, LLM-driven fetch selection, two-GPU sequencing, prompt-layer-first anti-fabrication — lives on the case study page at <a href="/case-studies/ai-research-platform" className="text-[var(--accent)] underline decoration-[var(--accent-dim)] underline-offset-4 hover:decoration-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">/case-studies/ai-research-platform</a>.</p>
         </section>
 
-      </article>
+        </article>
+      </div>
 
       {/* Back link */}
       <section className="max-w-[640px] mx-auto px-6 py-8 border-t border-[var(--rule)]">
