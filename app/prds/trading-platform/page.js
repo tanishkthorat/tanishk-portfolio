@@ -14,7 +14,7 @@ export default function TradingPlatformPRD() {
     <main className="min-h-screen bg-[var(--bg)] text-[var(--fg-muted)]">
 
       {/* Header / breadcrumb */}
-      <nav className="max-w-4xl mx-auto px-6 pt-24 pb-8">
+      <nav className="max-w-[640px] mx-auto px-6 pt-24 pb-8">
         <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-6">
           <a href="/" className="text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">TANISHK THORAT</a>
           <span className="text-[var(--fg-dim)]"> / </span>
@@ -45,8 +45,8 @@ export default function TradingPlatformPRD() {
 
       {/* Body */}
       <div className="relative max-w-[640px] mx-auto px-6 py-12">
-        <aside className="my-10 py-6 border-t border-b border-[var(--rule)] lg:my-0 lg:py-0 lg:border-0 lg:absolute lg:top-12 lg:bottom-12 lg:right-full lg:mr-16 lg:w-48">
-          <nav aria-label="Table of contents" className="lg:sticky lg:top-24">
+        <aside className="my-10 py-6 border-t border-b border-[var(--rule)] xl:my-0 xl:py-0 xl:border-0 xl:absolute xl:top-12 xl:bottom-12 xl:right-full xl:mr-16 xl:w-48">
+          <nav aria-label="Table of contents" className="xl:sticky xl:top-24">
             <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--accent)] mb-4">CONTENTS</p>
             <ol className="font-mono text-[13px] leading-[1.9] text-[var(--fg-muted)] space-y-1 list-none p-0">
               <li><a href="#overview" className="hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">1. Overview</a></li>
