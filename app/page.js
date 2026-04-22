@@ -9,7 +9,7 @@ export default function Home() {
         <SectionEyebrow className="mb-4">TANISHK THORAT</SectionEyebrow>
         <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Hi, I&apos;m Tanishk.</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
-          Senior consultant at EY working on Fortune 500 tech transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks (mostly the second one..). Some of these are running daily. Others are a work in progress.
+          Senior Tech Strategist working on Fortune 500 transformation programs, which mostly means I get paid to figure out where big companies&apos; tech rollouts are going to break. I also love building things, especially AI projects, so in the evenings I build my own to learn what works and what breaks (the second one...). Some of these are running daily. Others are a work in progress.
         </p>
         <div className="mt-10 flex gap-3 flex-wrap">
           <a href="#case-studies" className="inline-block font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-[10px] bg-[var(--accent)] text-[var(--bg)] hover:bg-[var(--fg)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">See the projects</a>
@@ -80,7 +80,7 @@ export default function Home() {
         <SectionEyebrow>ABOUT</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-8">Who I am</h2>
         <div className="space-y-4 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
-          <p>3+ years on Fortune 500 transformation programs: tech implementations, project management, change management, and delivery planning across hundred-person programs.</p>
+          <p>Outside work I fix vintage electronics, go bouldering, and spend time with the friends who make the rest of it worth it.</p>
           <p>M.S. in Analytics from Fordham. Bachelor&apos;s in Finance from Mumbai. Based in NYC.</p>
           <p>Contact: <a href="mailto:tanishkthorat7@gmail.com" className="text-[var(--accent)] underline decoration-[var(--accent-dim)] underline-offset-4 hover:decoration-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">tanishkthorat7@gmail.com</a></p>
         </div>
