@@ -1,4 +1,5 @@
 import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
+import { GTMCaseStudyCard } from "@/app/_components/GTMCaseStudyCard";
 
 export default function Home() {
   return (
@@ -17,12 +18,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Three case study cards */}
+      {/* Case study cards */}
       <section id="case-studies" className="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--rule)]">
         <SectionEyebrow>CASE STUDIES</SectionEyebrow>
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-12">What I&apos;ve built</h2>
 
         <div className="space-y-6">
+
+          <GTMCaseStudyCard headingLevel="h3" />
 
           <a href="/case-studies/ai-research-platform" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex flex-col md:flex-row">

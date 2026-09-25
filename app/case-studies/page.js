@@ -1,6 +1,8 @@
+import { GTMCaseStudyCard } from "@/app/_components/GTMCaseStudyCard";
+
 export const metadata = {
   title: "Case Studies — Tanishk Thorat",
-  description: "Three case studies on building and shipping AI systems: a self-hosted research platform, a swing trading platform, and a deployment plan for a regulated biotech.",
+  description: "Four case studies on AI systems and GTM engineering: an outbound consulting workflow, a research platform, a trading platform, and a regulated biotech deployment plan.",
 };
 
 export default function CaseStudiesIndex() {
@@ -17,14 +19,16 @@ export default function CaseStudiesIndex() {
           <span className="text-[var(--fg-dim)]"> / </span>
           <span className="text-[var(--accent)]">CASE STUDIES</span>
         </p>
-        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Three case studies.</h1>
+        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Four case studies.</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
-          Two systems I built and operate on my own hardware. One deployment plan for a regulated client. Each one is here because the decisions inside it are worth defending in an interview.
+          Two systems I built and operate on my own hardware. A GTM workflow reaching its first real outreach. A deployment plan for a fictional regulated client. Each one is here because the decisions inside it are worth defending in an interview.
         </p>
       </section>
 
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
         <div className="space-y-6">
+
+          <GTMCaseStudyCard />
 
           <a href="/case-studies/ai-research-platform" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">

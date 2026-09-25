@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Tanishk Thorat — AI Product Design",
-  description: "Enterprise AI product design, from the inside. Case study, PRD, and 12-week delivery roadmap for a regulated biotech document intelligence system.",
+  description: "AI product design and GTM engineering, from the inside. Case studies on research systems, trading tools, an outbound consulting workflow, and regulated enterprise deployment.",
 };
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('theme-light');}}catch(e){}})();`;
