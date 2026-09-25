@@ -1,3 +1,4 @@
+import { TradingCaseStudyCards } from "@/app/_components/TradingCaseStudyCards";
 import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
 import { GTMCaseStudyCard } from "@/app/_components/GTMCaseStudyCard";
 
@@ -44,22 +45,7 @@ export default function Home() {
             </div>
           </a>
 
-          <a href="/case-studies/trading-platform/v2" className="block bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
-            <div className="flex flex-col md:flex-row">
-              <div className="flex-1 p-8">
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">CASE STUDY 02</p>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
-                </div>
-                <h3 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Trading Platform · Version 2</h3>
-                <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)] mb-5">The next chapter: an eight-stage research team, bounded paper trading, and a reproducible strategy lab. Built on the original trading platform, with decisions and failed experiments kept inspectable.</p>
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--accent)]">Read case study →</span>
-              </div>
-              <div className="md:w-80 md:flex-shrink-0 border-t md:border-t-0 md:border-l border-[var(--rule)] bg-[var(--bg)]">
-                <img src="/screenshots/trading-strategies.png" alt="Trading platform strategies tab with backtest results" className="w-full h-full object-cover object-left-top" />
-              </div>
-            </div>
-          </a>
+          <TradingCaseStudyCards headingLevel="h3" showImage />
 
           <a href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">

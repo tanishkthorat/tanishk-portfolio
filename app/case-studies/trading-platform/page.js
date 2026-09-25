@@ -172,10 +172,11 @@ export default function TradingPlatform() {
       <section id="version-1" className="max-w-4xl mx-auto px-6 pb-12 scroll-mt-20">
         <SectionEyebrow>VERSION 1 · ORIGINAL PLATFORM SNAPSHOT</SectionEyebrow>
         <div className="flex items-center gap-3 mb-4 flex-wrap">
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--fg-muted)] text-[var(--fg-muted)]">ARCHIVED · VERSION 1</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--fg-dim)]">ONE USER (ME) · NO LIVE TRADING</span>
         </div>
         <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Trading Platform — Version 1</h1>
+        <p className="font-sans text-sm leading-relaxed text-[var(--fg-muted)] mb-6">This case study preserves the original platform, its results, and its roadmap at the time. Current development continues in Version 2.</p>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px] mb-8">
           A self-hosted swing trading research system built on top of the AI Research Platform. Two motivations: an active project I work on daily, and a domain where LLM mistakes are auditable because every claim is a number that can be checked.
         </p>
