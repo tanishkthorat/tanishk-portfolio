@@ -1,6 +1,7 @@
 import { TradingCaseStudyCards } from "@/app/_components/TradingCaseStudyCards";
 import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
 import { GTMCaseStudyCard } from "@/app/_components/GTMCaseStudyCard";
+import { EvidenceDeskCaseStudyCard } from "@/app/_components/EvidenceDeskCaseStudyCard";
 
 export default function Home() {
   return (
@@ -25,6 +26,8 @@ export default function Home() {
         <h2 className="font-mono text-3xl md:text-4xl font-medium tracking-[-0.005em] leading-[1.2] text-[var(--fg)] mb-12">What I&apos;ve built</h2>
 
         <div className="space-y-6">
+
+          <EvidenceDeskCaseStudyCard headingLevel="h3" />
 
           <GTMCaseStudyCard headingLevel="h3" />
 

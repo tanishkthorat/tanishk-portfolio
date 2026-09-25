@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { TradingCaseStudyCards } from "@/app/_components/TradingCaseStudyCards";
 import { GTMCaseStudyCard } from "@/app/_components/GTMCaseStudyCard";
+import { EvidenceDeskCaseStudyCard } from "@/app/_components/EvidenceDeskCaseStudyCard";
 
 export const metadata = {
   title: "Case Studies — Tanishk Thorat",
-  description: "Four case studies on AI systems and GTM engineering: an outbound consulting workflow, a research platform, a trading platform, and a regulated biotech deployment plan.",
+  description: "Five case studies on journalism research, AI systems, and GTM engineering: Evidence Desk, an outbound consulting workflow, a research platform, a trading platform, and a regulated biotech deployment plan.",
 };
 
 export default function CaseStudiesIndex() {
@@ -11,27 +13,29 @@ export default function CaseStudiesIndex() {
     <main className="min-h-screen bg-[var(--bg)] text-[var(--fg-muted)]">
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-16">
         <p className="font-mono text-[10px] tracking-[0.18em] uppercase mb-4">
-          <a
+          <Link
             href="/"
             className="text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2"
           >
             TANISHK THORAT
-          </a>
+          </Link>
           <span className="text-[var(--fg-dim)]"> / </span>
           <span className="text-[var(--accent)]">CASE STUDIES</span>
         </p>
-        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Four case studies.</h1>
+        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Five case studies.</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px]">
-          Two systems I built and operate on my own hardware. A GTM workflow reaching its first real outreach. A deployment plan for a fictional regulated client. Each one is here because the decisions inside it are worth defending in an interview.
+          Three systems I built, a GTM workflow reaching its first real outreach, and a deployment plan for a fictional regulated client. Each one is here because the decisions inside it are worth defending in an interview.
         </p>
       </section>
 
       <section className="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--rule)]">
         <div className="space-y-6">
 
+          <EvidenceDeskCaseStudyCard />
+
           <GTMCaseStudyCard />
 
-          <a href="/case-studies/ai-research-platform" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+          <Link href="/case-studies/ai-research-platform" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -45,11 +49,11 @@ export default function CaseStudiesIndex() {
               </div>
               <span className="text-[var(--accent-dim)] text-2xl mt-1">→</span>
             </div>
-          </a>
+          </Link>
 
           <TradingCaseStudyCards />
 
-          <a href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+          <Link href="/case-studies/strategic-synthesis-engine" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -58,19 +62,19 @@ export default function CaseStudiesIndex() {
                 </div>
                 <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Strategic Synthesis Engine</h2>
                 <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)]">
-                  A 12-week deployment plan for a fictional regulated biotech wrestling with 50,000 documents and a legal team that doesn't trust AI. Take-home turned case study.
+                  A 12-week deployment plan for a fictional regulated biotech wrestling with 50,000 documents and a legal team that does not trust AI. Take-home turned case study.
                 </p>
               </div>
               <span className="text-[var(--accent-dim)] text-2xl mt-1">→</span>
             </div>
-          </a>
+          </Link>
 
         </div>
       </section>
 
       <footer className="max-w-4xl mx-auto px-6 py-8 border-t border-[var(--rule)] font-mono text-[11px] text-[var(--fg-dim)]">
         <p>
-          <a href="/" className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">← Back to home</a>
+          <Link href="/" className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--fg-dim)] hover:text-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">← Back to home</Link>
         </p>
       </footer>
     </main>
