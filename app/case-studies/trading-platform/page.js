@@ -1,8 +1,9 @@
 import { SectionEyebrow } from "@/app/_components/SectionEyebrow";
+import Link from "next/link";
 
 export const metadata = {
   title: "Trading Platform — Tanishk Thorat",
-  description: "A self-hosted swing trading platform with natural-language strategy compilation, regime-aware risk controls, deterministic execution, and Sentinel-powered news sentiment.",
+  description: "From a self-hosted swing trading platform to Version 2: research agents, deterministic paper trading, and a reproducible strategy lab. Explore both versions.",
 };
 
 const TABLE_CELL = "py-3 font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)]";
@@ -160,12 +161,21 @@ export default function TradingPlatform() {
       </nav>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-6 pb-12">
+      <section className="max-w-4xl mx-auto px-6 pb-10">
+        <Link href="/case-studies/trading-platform/v2" className="block p-6 border border-[var(--accent-dim)] bg-[var(--bg-raised)] hover:border-[var(--accent)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+          <SectionEyebrow>NEW · VERSION 2</SectionEyebrow>
+          <h2 className="font-mono text-2xl text-[var(--fg)] mb-3">Trading Agents: from a platform to a research team</h2>
+          <p className="font-sans text-base leading-relaxed mb-4">An eight-stage research desk, bounded paper trading, and a strategy lab. The next chapter builds on the original platform below.</p>
+          <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--accent)]">Read Version 2 →</span>
+        </Link>
+      </section>
+      <section id="version-1" className="max-w-4xl mx-auto px-6 pb-12 scroll-mt-20">
+        <SectionEyebrow>VERSION 1 · ORIGINAL PLATFORM SNAPSHOT</SectionEyebrow>
         <div className="flex items-center gap-3 mb-4 flex-wrap">
           <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--fg-dim)]">ONE USER (ME) · NO LIVE TRADING</span>
         </div>
-        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Trading Platform</h1>
+        <h1 className="font-mono text-4xl md:text-5xl font-medium tracking-[-0.01em] leading-[1.15] text-[var(--fg)] mb-6">Trading Platform — Version 1</h1>
         <p className="font-sans text-base md:text-[17px] leading-[1.65] text-[var(--fg-muted)] max-w-[640px] mb-8">
           A self-hosted swing trading research system built on top of the AI Research Platform. Two motivations: an active project I work on daily, and a domain where LLM mistakes are auditable because every claim is a number that can be checked.
         </p>

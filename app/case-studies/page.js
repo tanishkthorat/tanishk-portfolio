@@ -46,16 +46,16 @@ export default function CaseStudiesIndex() {
             </div>
           </a>
 
-          <a href="/case-studies/trading-platform" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
+          <a href="/case-studies/trading-platform/v2" className="block p-8 bg-[var(--bg-raised)] border border-[var(--rule)] hover:border-[var(--accent-dim)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2">
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                   <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--fg-dim)]">CASE STUDY 02</p>
                   <span className="font-mono text-[9px] uppercase tracking-[0.14em] px-2 py-[3px] border border-[var(--accent)] text-[var(--accent)]">IN ACTIVE DEVELOPMENT</span>
                 </div>
-                <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Trading Platform</h2>
+                <h2 className="font-mono text-2xl font-medium tracking-[-0.005em] text-[var(--fg)] mb-3">Trading Platform · Version 2</h2>
                 <p className="font-sans text-[15px] leading-[1.65] text-[var(--fg-muted)]">
-                  A swing trading research system built on top of the AI Research Platform. Natural-language strategy compilation, deterministic execution, regime-aware risk controls. One user: me. No live trading.
+                  The next chapter: an eight-stage research team, bounded paper trading, and a reproducible strategy lab. Built on the original trading platform, with decisions and failed experiments kept inspectable.
                 </p>
               </div>
               <span className="text-[var(--accent-dim)] text-2xl mt-1">→</span>
